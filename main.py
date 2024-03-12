@@ -31,5 +31,5 @@ def process_data_folder():
             os.remove(filepath)
         elif os.path.isdir(filepath):
             shutil.rmtree(filepath)
-    print("Файлы в папке 'data' успешно удалены.")
+    print("Ответы в папке data удалены.")
 process_data_folder()
