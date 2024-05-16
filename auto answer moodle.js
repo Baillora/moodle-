@@ -3,7 +3,7 @@
 // если в вопросе несеольео ответов нужно записать их в 1 сточку (если скрипт находит вопрос то он в правом нижнем углу покажет еле видный текст (можно изменить в конце кода))
 // Рекомендую использовать Bookmarklet с JS (Хороший сайт https://caiorss.github.io/bookmarklet-maker/)
 // В вопросах игнорируется Капс и знаки припинаня для лучшего поиска
-// Если вопроса в БД нет то будет писаться в правом нижнем углу null и вопрос который на сайте
+// Если вопроса в БД нет то будет писаться в правом нижнем углу "Ответ не найден" и вопрос который на сайте
 // так же всё дублируется в консоль
 // прога плохо работает с вопросами по типу установите соответствие мб в будушем добавлю как и с выбором из нескольких (писать так же как и с выбором из нескольких ответов)
 
@@ -30,15 +30,15 @@ var cheater = {
 };
 
 function findAnswer(question) {
-const cleanQuestion = question.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').replace(/\s/g, '').toLowerCase();
+  const cleanQuestion = question.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').replace(/\s/g, '').toLowerCase();
 
-for (var i = 0; i < cheater.answers.length; i++) {
-  const cleanAnswer = cheater.answers[i].question.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').replace(/\s/g, '').toLowerCase();
-  if (cleanQuestion === cleanAnswer) {
-    return cheater.answers[i].answer;
+  for (var i = 0; i < cheater.answers.length; i++) {
+      const cleanAnswer = cheater.answers[i].answer.replace(/[\.,-\/#!$%\^&\*;:{}=\-_`~()@\+\?><\[\]\+]/g, '').replace(/\s/g, '').toLowerCase();
+      if (cleanQuestion === cleanAnswer) {
+          return cheater.answers[i].answer;
+      }
   }
-}
-return null;
+  return null;
 }
 
 function autoSelectAnswer() {
@@ -60,11 +60,11 @@ questionElements.forEach(function(questionElement) {
     });
     if (!answerFound) {
       console.log('Ответ не найден для вопроса:', questionText, 'Причина: нет элемента с ответом. Предполагаемый ответ:', answerText);
-      showNotification('' + questionText + ' | ' + answerText);
+      showNotification('' + questionText + 'Предполагаемый ответ:' + answerText);
     }
   } else {
     console.log('Ответ не найден в базе данных для вопроса:', questionText);
-    showNotification('null ' + questionText);
+    showNotification('Ответ не найден' + questionText);
   }
 });
 }
