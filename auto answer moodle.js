@@ -1,3 +1,4 @@
+// RU
 // Скрипт для автоматических ответов mooodle 
 // Cheater это БД в неё нужно записать вопросы и ответы 
 // если в вопросе несеольео ответов нужно записать их в 1 сточку (если скрипт находит вопрос то он в правом нижнем углу покажет еле видный текст (можно изменить в конце кода))
@@ -6,7 +7,15 @@
 // Если вопроса в БД нет то будет писаться в правом нижнем углу "Ответ не найден" и вопрос который на сайте
 // так же всё дублируется в консоль
 // прога плохо работает с вопросами по типу установите соответствие мб в будушем добавлю как и с выбором из нескольких (писать так же как и с выбором из нескольких ответов)
-
+// ENG
+// Script for automatic responses in Moodle
+// Cheater is the database where you need to record questions and answers
+// If there are multiple answers to a question, you need to write them in one line (if the script finds the question, it will display a barely visible text in the lower right corner (you can change it at the end of the code))
+// I recommend using a Bookmarklet with JS (Good website https://caiorss.github.io/bookmarklet-maker/)
+// In questions, capitalization and punctuation are ignored for better search
+// If the question is not in the DB, it will write "Answer not found" in the lower right corner and the question on the website
+// Also, everything is duplicated in the console
+// The program does not work well with questions like "establish the correspondence" maybe I will add it in the future, as well as with multiple choice (write the same way as with multiple answers)
 
 var cheater = {
     answers: [
